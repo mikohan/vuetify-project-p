@@ -1,19 +1,26 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+    <v-app id="inspire">
+        <navbar></navbar>
+        <v-content class="grey lighten-4">
+            <v-container class="fill-height">
+                <router-view></router-view>
+            </v-container>
+        </v-content>
+    </v-app>
 </template>
 
-<style lang="stylus">
-#app
-  font-family Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
-</style>
+<script>
+import Navbar from "@/components/Navbar";
+export default {
+    props: {
+        source: String
+    },
+    components: {
+        Navbar
+    },
+    data: () => ({}),
+    created() {
+        //this.$vuetify.theme.dark = false
+    }
+};
+</script>
